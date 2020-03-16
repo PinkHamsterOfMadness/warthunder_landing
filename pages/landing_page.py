@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from .base_page import BasePage
 from .locators import LandingPageLocators
 from .locators import RegistrationFormLocators
+import time
 
 
 class LandingPage(BasePage):
@@ -94,7 +95,7 @@ class LandingPage(BasePage):
         language_picker_language.click()
 
         # проверяем что перешли на url с правильным языком
-        assert "/" + language + '/' in self.browser.current_url, "These aren't language(" + language + ") you're looking for."
+        assert "warthunder.com/" + language + '/test_task' in self.browser.current_url, "These aren't language(" + language + ") you're looking for."
 
         # открываем список языков
         assert self.is_element_present(
@@ -108,4 +109,20 @@ class LandingPage(BasePage):
         # проверяем что язык на который мы перешли исчез из списка
         assert self.is_element_present(
             By.CSS_SELECTOR, "li.lang-picker__list-item.ng-scope.ng-hide > a.lang-picker__list-a.--" + language), "Language(" + language + ") is still in list"
+
+    def go_to_login_page_from_registration_form(self, email):
+        time.sleep(2)
+
+        assert self.is_element_present(
+            *RegistrationFormLocators.REGISTRATION_EMAIL_INPUT), "Registration form email input is not presented"
+        email_input = self.browser.find_element(*RegistrationFormLocators.REGISTRATION_EMAIL_INPUT)
+        email_input.send_keys(email)
+
+        time.sleep(2)
+
+        assert self.is_element_present(*RegistrationFormLocators.REGISTRATION_FORM_LOGIN_BUTTON), "Registration login button is not presented"
+        login_button = self.browser.find_element(*RegistrationFormLocators.REGISTRATION_FORM_LOGIN_BUTTON)
+        login_button.click()
+
+
 

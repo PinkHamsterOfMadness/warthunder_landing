@@ -36,8 +36,8 @@ class RegistrationFormLocators():
     REGISTRATION_FORM = (By.CSS_SELECTOR, "div.registration")
     REGISTRATION_FORM_EXIT = (By.CSS_SELECTOR, "a.registration__close")
 
-    REGISTRATION_FORM_LOGIN_BUTTON = (By.CSS_SELECTOR, "a.registration__email - busy - button. - -red.ng - binding")
-    REGISTRATION_FORM_RECOVER_PASSWORD_BUTTON = (By.CSS_SELECTOR, "a.registration__email - busy - button. - -green.ng - binding")
+    REGISTRATION_FORM_LOGIN_BUTTON = (By.CSS_SELECTOR, "a.registration__email-busy-button.--red")
+    REGISTRATION_FORM_RECOVER_PASSWORD_BUTTON = (By.CSS_SELECTOR, "a.registration__email-busy-button.--green")
     REGISTRATION_EMAIL_INPUT = (By.CSS_SELECTOR, "#emailInput")
     REGISTRATION_NICKNAME_INPUT = (By.CSS_SELECTOR, "#nicknameInput")
     REGISTRATION_PASSWORD_INPUT = (By.CSS_SELECTOR, "#passwordInput")
@@ -53,3 +53,10 @@ class RegistrationFormLocators():
     REGISTRATION_BUTTON = (By.CSS_SELECTOR, "input.form-input__submit.btn-wt")
     REGISTRATION_CLIENT_DOWNLOAD_LINK = (By.CSS_SELECTOR, "a.registration__download-link")
 
+
+class LoginPageLocators():
+    LOGIN_EMAIL_INPUT = (By.CSS_SELECTOR, "#email")
+    LOGIN_PASSWORD_INPUT = (By.CSS_SELECTOR, "#password")
+    LOGIN_AUTHORIZATION_BUTTON = (By.CSS_SELECTOR, ".submit.btn")
+    LOGIN_REGISTRATION_LINK = (By.CSS_SELECTOR, "div.create.xs-center > a")
+    LOGIN_CHOOSE_ACCOUNT_LINK = (By.CSS_SELECTOR, "a.list-group-item.auth-link.auth-link--caret")
